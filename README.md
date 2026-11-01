@@ -32,7 +32,7 @@ This is my personal portfolio website, created to present my profile and web dev
 ## 📬 Connect With Me
 
 - GitHub: https://github.com/ankityex
-- Instagram: https://www.instagram.com/anki.tyex/
+- Instagram: https://www.instagram.com/anki.tyexx/
 - Telegram: https://t.me/ankityex
 
 ## 🚀 How to Run

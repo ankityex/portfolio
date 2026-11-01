@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Me | Ankit Kumar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #020617;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+/* PROFESSIONAL NAVBAR */
+.header {
+    width: 100%;
+    min-height: 80px;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #081b29;
+    border-bottom: 1px solid #38bdf850;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.navbar a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #38bdf8;
+}
+
+#darkModeBtn {
+    background: #38bdf8;
+    color: #082f49;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+        /* ABOUT HERO */
+
+        .about-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 8%;
+            gap: 70px;
+            background:
+                radial-gradient(circle at 15% 50%, #0c4a6e50, transparent 35%),
+                #020617;
+        }
+
+        .about-image {
+            position: relative;
+            animation: imageEntry 1.2s ease;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 25px;
+            border: 3px solid #38bdf8;
+            box-shadow: 0 0 35px #38bdf850;
+        }
+
+        .about-content {
+            max-width: 600px;
+            animation: textEntry 1.2s ease;
+        }
+
+        .tag {
+            color: #38bdf8;
+            letter-spacing: 4px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .about-content h1 {
+            font-size: clamp(35px, 5vw, 60px);
+            margin-bottom: 20px;
+        }
+
+        .about-content h1 span {
+            color: #38bdf8;
+        }
+
+        .about-content h3 {
+            color: #94a3b8;
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #cbd5e1;
+            line-height: 1.9;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #020617;
+            padding: 13px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px #38bdf8;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* JOURNEY CARDS */
+
+        .journey-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .journey-card {
+            background: #0f172a;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #38bdf830;
+            transition: 0.4s;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-10px);
+            border-color: #38bdf8;
+            box-shadow: 0 0 25px #38bdf830;
+        }
+
+        .journey-card h3 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .journey-card p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        /* SKILLS */
+
+        .skills-section {
+            background: #081b29;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: #0f172a;
+            border: 1px solid #38bdf8;
+            padding: 20px 35px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #38bdf8;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            background: #38bdf8;
+            color: #020617;
+            transform: scale(1.08);
+            box-shadow: 0 0 20px #38bdf8;
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-section p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #081b29;
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+        }
+
+        /* ANIMATIONS */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes imageEntry {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes textEntry {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* MOBILE RESPONSIVE */
+
+/* MOBILE RESPONSIVE NAVBAR */
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px 3%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        gap: 12px;
+    }
+
+    .navbar a {
+        font-size: 13px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-image img {
+        width: 240px;
+        height: 300px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+    /* ===== HAMBURGER MENU ===== */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* MOBILE NAVBAR */
+
+@media (max-width: 700px) {
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        gap: 18px;
+        padding: 20px 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+}
+}/* ===== DARK MODE ===== */
+
+body.dark-mode {
+    background: #000814;
+    color: #e2e8f0;
+}
+
+body.dark-mode .header,
+body.dark-mode .skills-section,
+body.dark-mode footer {
+    background: #000814;
+}
+
+body.dark-mode .about-hero {
+    background: #000814;
+}
+
+body.dark-mode .journey-card,
+body.dark-mode .skill-box {
+    background: #020617;
+    border-color: #38bdf8;
+}
+
+body.dark-mode .about-content p,
+body.dark-mode .journey-card p,
+body.dark-mode .contact-section p {
+    color: #cbd5e1;
+}/* ===== CUSTOM MOUSE CURSOR ===== */
+#customCursor {
+    width: 18px;
+    height: 18px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: 2px solid #38bdf8;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.15);
+    box-shadow: 0 0 12px #38bdf8;
+    pointer-events: none;
+    z-index: 100001;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    #customCursor {
+        display: block;
+    }
+}
+/* DESKTOP HAMBURGER FIX */
+.menu-toggle {
+    display: none !important;
+}
+
+@media (max-width: 700px) {
+    .menu-toggle {
+        display: block !important;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="header">
+
+    <a href="somebs.html" class="logo">
+        ANKIT<span> KUMAR.</span>
+    </a>
+
+    <!-- HAMBURGER BUTTON -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Open Menu">
+        ☰
+    </button>
+
+    <nav class="navbar" id="navbar">
+        <a href="somebs.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+
+        <button id="darkModeBtn" type="button">
+            🌙 Dark Mode
+        </button>
+    </nav>
+
+</header>
+
+    <!-- ABOUT HERO -->
+
+    <div class="about-hero">
+
+        <div class="about-image">
+    <img src="image/profile.jpg" alt="Ankit Kumar Profile Photo">
+        </div>
+
+        <div class="about-content">
+
+            <div class="tag">GET TO KNOW ME</div>
+
+            <h1>About <span>Me</span></h1>
+
+            <h3>I'm Ankit Kumar</h3>
+
+            <p>
+                Hello! My name is Ankit Kumar. I am a student
+                and an aspiring web developer. I enjoy learning
+                new technologies and creating modern websites.
+
+                I am currently learning HTML, CSS and JavaScript.
+                My goal is to improve my coding skills and build
+                creative, useful and responsive websites.
+            </p>
+
+            <a href="projects.html" class="btn">
+                Explore My Work
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- MY JOURNEY -->
+
+    <section class="reveal">
+
+        <h2 class="section-title">
+            My <span>Journey</span>
+        </h2>
+
+        <div class="journey-container">
+
+            <div class="journey-card">
+                <h3>01. My Beginning</h3>
+                <p>
+                    My journey started with an interest in
+                    computers and technology. I began exploring
+                    how websites are created.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <h3>02. Learning</h3>
+                <p>
+                    I am learning HTML, CSS and JavaScript
+                    to understand website design and
+                    development.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <h3>03. Building</h3>
+                <p>
+                    I practice my skills by creating projects
+                    and improving my knowledge of web development.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MY SKILLS -->
+
+    <section class="skills-section reveal">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills-container">
+
+            <div class="skill-box">HTML5</div>
+            <div class="skill-box">CSS3</div>
+            <div class="skill-box">JavaScript</div>
+            <div class="skill-box">Responsive Design</div>
+            <div class="skill-box">Web Design</div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section reveal">
+
+        <h2 class="section-title">
+            Let's <span>Connect</span>
+        </h2>
+
+        <p>
+            Thank you for visiting my portfolio.
+            Feel free to explore my projects and get in touch.
+        </p>
+
+        <a href="contact.html" class="btn">
+            Contact Me
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>&copy; 2026 Ankit Kumar. All Rights Reserved.</p>
+    </footer>
+
+    <!-- SCROLL ANIMATION -->
+
+<script>
+    const aboutObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                aboutObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach(function(element) {
+        aboutObserver.observe(element);
+    });
+</script>
+<!-- CUSTOM MOUSE CURSOR -->
+<div id="customCursor"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

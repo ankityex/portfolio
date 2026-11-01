@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Ankit Kumar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }html {
+    overflow-y: scroll;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+            min-height: 100vh;
+        }
+/* PROFESSIONAL NAVBAR */
+.header {
+    width: 100%;
+    min-height: 80px;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #081b29;
+    border-bottom: 1px solid #38bdf850;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.navbar a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #38bdf8;
+}
+
+#darkModeBtn {
+    background: #38bdf8;
+    color: #082f49;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+       
+        
+
+       
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            color: #38bdf8;
+        }
+
+        .intro {
+            text-align: center;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            margin-top: 18px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #0f172a;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #cbd5e1;
+        }
+/* MOBILE RESPONSIVE NAVBAR */
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px 3%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        gap: 12px;
+    }
+
+    .navbar a {
+        font-size: 13px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+}
+       
+
+            h1 {
+                font-size: 35px;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+    /* WHATSAPP BUTTON */
+
+.whatsapp-btn {
+    display: block;
+    max-width: 280px;
+    margin: 30px auto;
+    text-align: center;
+    text-decoration: none;
+    background: #25D366;
+    color: white;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-4px);
+}
+
+
+/* CONTACT FORM HOVER */
+
+.contact-form {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.20);
+}
+
+/* SEND BUTTON ANIMATION */
+
+.btn {
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+}
+    /* ===== HAMBURGER MENU ===== */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        gap: 18px;
+        padding: 20px 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+}
+/* CONTACT PAGE DARK MODE */
+
+body.dark-mode {
+    background: #020617 !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .header,
+body.dark-mode footer {
+    background: #000814 !important;
+}
+
+body.dark-mode .contact-form {
+    background: #081b29 !important;
+    border-color: #38bdf8 !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #020617 !important;
+    color: white !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .intro,
+body.dark-mode label {
+    color: #cbd5e1 !important;
+}
+/* CUSTOM MOUSE CURSOR */
+#customCursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #38bdf8;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+}
+/* SIMPLE CONTACT LINKS */
+.contact-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px auto;
+    font-size: 16px;
+}
+
+.contact-details a {
+    color: #38bdf8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-details a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.contact-details span {
+    color: #94a3b8;
+}
+/* CONTACT PAGE SPACING */
+.contact-details {
+    margin: 18px auto 25px;
+}
+/* ===== SOCIAL MEDIA ICONS ===== */
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e293b;
+    color: #cbd5e1;
+    border-radius: 50%;
+    font-size: 27px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: #38bdf8;
+    color: #ffffff;
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px #38bdf880;
+}
+    </style>
+</head>
+
+<body>
+  <header class="header">
+
+    <a href="somebs.html" class="logo">
+        ANKIT<span> KUMAR.</span>
+    </a>
+
+    <!-- HAMBURGER BUTTON -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Open Menu">
+        ☰
+    </button>
+
+    <nav class="navbar" id="navbar">
+        <a href="somebs.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+
+        <button id="darkModeBtn" type="button">
+            🌙 Dark Mode
+        </button>
+    </nav>
+
+</header>
+
+<main class="container">
+    <h1>Let's <span>Connect</span></h1>
+
+<p class="intro">
+    Have a question or want to connect?
+    Feel free to contact me.
+</p>
+
+<div class="contact-details">
+    <a href="https://wa.me/919102317654" target="_blank" rel="noopener">
+        💬 WhatsApp
+    </a>
+
+    <span>|</span>
+
+    <a href="mailto:ankitkumar9677x4@gmail.com">
+        ✉️ Email
+    </a>
+
+    <span>|</span>
+
+    <a href="https://www.google.com/maps/search/?api=1&query=Nawada+Bihar+India"
+       target="_blank" rel="noopener">
+        📍 Nawada, Bihar
+    </a>
+</div>
+    </a>
+<!-- SOCIAL MEDIA ICONS -->
+<div class="social-icons">
+
+    <a href="YOUR_FACEBOOK_LINK" target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+   <a href="https://www.instagram.com/anki.tyexx/" target="_blank" rel="noopener">
+    <i class="fab fa-instagram"></i>
+</a>
+<a href="https://wa.me/919102317654" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+</a>
+   <a href="https://t.me/ankityex" target="_blank" rel="noopener">
+    <i class="fab fa-telegram-plane"></i>
+</a>
+   <a href="https://github.com/ankityex"
+   target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-github"></i>
+</a>
+
+</div>
+</main>
+ 
+
+<footer>
+    <p>© 2026 Ankit Kumar | All Rights Reserved</p>
+</footer>
+
+<!-- CUSTOM MOUSE CURSOR -->
+<div id="customCursor"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

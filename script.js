@@ -4,9 +4,21 @@ window.addEventListener("load", function () {
 
     const loader = document.getElementById("loader");
 
+    if (!loader) {
+        return;
+    }
+
+    // Animation को पूरा होने के लिए समय दो
     setTimeout(function () {
+
         loader.classList.add("hide");
-    }, 2500);
+
+        // Animation खत्म होने के बाद Loader हटाओ
+        setTimeout(function () {
+            loader.style.display = "none";
+        }, 1000);
+
+    }, 3000);
 
 });
 

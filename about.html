@@ -3,616 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>About Me | Ankit Kumar</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family:'Poppins',sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: #000; color: white; min-height: 100vh; overflow-x:hidden; }
+        nav{
+          display:flex; align-items:center; justify-content:space-between; gap:20px;
+          padding:10px 4%; min-height:68px; position:sticky; top:0; z-index:10000;
+          background:#000; border-bottom:1px solid rgba(255,0,0,0.7);
         }
-
-        html {
-            scroll-behavior: smooth;
+        .logo{ display:flex; align-items:center; gap:10px; flex-shrink:0; color:#fff; text-decoration:none; }
+        .logo b{ color:#ff0000; font-size:42px; font-weight:900; font-style:italic; letter-spacing:-5px; line-height:1; transform:skewX(-12deg); text-shadow:0 0 15px rgba(255,0,0,0.8); }
+        .logo span{ font-size:22px; font-weight:800; white-space:nowrap; }
+        .logo span i{ color:#ff0000; font-style:normal; }
+        .menu{ display:flex; align-items:center; gap:6px; }
+        .menu a{ padding:9px 16px; border-radius:30px; font-size:14px; font-weight:600; display:flex; gap:7px; align-items:center; color:#fff; text-decoration:none; }
+        .menu a.active{ background:#ff0f0f; box-shadow:0 0 18px #ff0000; }
+        .menu a:hover{ background:rgba(255,0,0,0.15); }
+        .cv-btn{ border:1.5px solid #ff0000; background:#0a0000; padding:9px 16px; border-radius:30px; font-size:13px; font-weight:600; display:flex; gap:7px; align-items:center; box-shadow:0 0 15px rgba(255,0,0,0.4); color:#fff; text-decoration:none; }
+        .menu-toggle{ display:none; width:43px; height:43px; background:#100000; border:1px solid #ff1717; border-radius:9px; cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:5px; }
+        .menu-toggle span{ display:block; width:22px; height:2px; background:#fff; border-radius:5px; }
+        @media(max-width:950px){
+          .menu-toggle{ display:flex; }
+          .menu{ position:absolute; top:100%; left:0; width:100%; display:none; flex-direction:column; padding:18px 5% 22px; background:#080808; border-bottom:1px solid #ff1717; }
+          .menu.show{ display:flex; }
+          .menu a{ width:100%; padding:13px 16px; }
         }
+        @media(max-width:500px){ .logo span{ font-size:16px; } .logo b{ font-size:34px; } .cv-btn{ padding:9px 11px; font-size:12px; } }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #020617;
-            color: white;
-            overflow-x: hidden;
+        .wrap{ max-width:1050px; margin:0 auto; padding:55px 5% 70px; position:relative; }
+        .wrap::before{ content:""; position:absolute; top:0; left:0; right:0; height:450px; pointer-events:none; background:radial-gradient(circle at 85% 10%, rgba(255,0,0,0.22) 0%, transparent 55%), radial-gradient(circle at 10% 90%, rgba(255,0,0,0.10) 0%, transparent 50%); }
+        .about-grid{ display:grid; grid-template-columns:380px 1fr; gap:55px; align-items:center; position:relative; z-index:2; }
+
+        .photo-box{ position:relative; padding:14px; border-radius:24px; background:#0d0d0d; border:1px solid rgba(255,0,0,0.25); box-shadow:0 20px 45px rgba(255,0,0,0.12); }
+        .photo-inner{ width:100%; height:470px; border-radius:16px; overflow:hidden; background:linear-gradient(135deg,#ff2020,#7a0000); display:flex; align-items:center; justify-content:center; font-size:70px; font-weight:900; color:#fff; position:relative; }
+        .photo-inner img{ width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0; }
+
+        .tag-top{ display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:3px; font-weight:600; margin-bottom:14px; }
+        .tag-top::before{ content:""; width:36px; height:3px; background:#ff1010; box-shadow:0 0 12px #ff1010; display:inline-block; }
+        h1{ font-size:clamp(38px,5vw,54px); line-height:1.05; letter-spacing:-1px; margin-bottom:10px; }
+        h1 span{ color:#ff0a0a; }
+        .subtitle{ font-size:20px; font-weight:600; margin-bottom:18px; }
+        .subtitle span{ color:#ff4040; }
+        .about-text p{ color:#b8b8b8; font-size:15.5px; line-height:1.8; margin-bottom:16px; }
+        .about-text p b{ color:#fff; }
+
+        .profile-line{
+            display:flex; align-items:center; gap:10px;
+            margin-top:26px; padding-top:22px;
+            border-top:1px solid rgba(255,255,255,0.12);
+            color:#c9c9c9; font-size:14.5px; font-weight:600; letter-spacing:0.3px;
         }
+        .profile-line i{ color:#ff4040; font-size:13px; }
+        .profile-line b{ color:#fff; }
+        .live-dot{ width:9px; height:9px; background:#25D366; border-radius:50%; flex-shrink:0; box-shadow:0 0 10px #25D366; animation:pulse 1.8s infinite; }
+        @keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(37,211,102,0.6);} 70%{ box-shadow:0 0 0 9px rgba(37,211,102,0);} 100%{ box-shadow:0 0 0 0 rgba(37,211,102,0);} }
 
-        /* HEADER */
-/* PROFESSIONAL NAVBAR */
-.header {
-    width: 100%;
-    min-height: 80px;
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    background: #081b29;
-    border-bottom: 1px solid #38bdf850;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.logo span {
-    color: #38bdf8;
-}
-
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-}
-
-.navbar a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.navbar a:hover,
-.navbar a.active {
-    color: #38bdf8;
-}
-
-#darkModeBtn {
-    background: #38bdf8;
-    color: #082f49;
-    padding: 11px 16px;
-    border: none;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    white-space: nowrap;
-}
-        /* ABOUT HERO */
-
-        .about-hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 8%;
-            gap: 70px;
-            background:
-                radial-gradient(circle at 15% 50%, #0c4a6e50, transparent 35%),
-                #020617;
+        .journey{ margin-top:70px; position:relative; z-index:2; text-align:left; }
+        .journey h2{ font-size:32px; margin-bottom:6px; }
+        .journey h2 span{ color:#ff0a0a; }
+        .journey .j-sub{ color:#aaa; font-size:14.5px; margin-bottom:30px; }
+        .j-list{ display:flex; flex-direction:column; gap:0; position:relative; padding-left:34px; }
+        .j-list::before{ content:""; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:linear-gradient(180deg,#ff4040,#ff0a0a,rgba(255,0,0,0.15)); }
+        .j-item{ position:relative; padding:0 0 30px; }
+        .j-item:last-child{ padding-bottom:0; }
+        .j-item::before{
+            content:""; position:absolute; left:-32px; top:5px; width:18px; height:18px; border-radius:50%;
+            background:#000; border:2px solid #ff2020; box-shadow:0 0 12px rgba(255,0,0,0.7);
         }
+        .j-num{ color:#ff4040; font-size:13px; font-weight:800; letter-spacing:2px; margin-bottom:5px; }
+        .j-item h3{ font-size:19px; margin-bottom:7px; }
+        .j-item p{ color:#b8b8b8; font-size:14.5px; line-height:1.75; max-width:700px; }
 
-        .about-image {
-            position: relative;
-            animation: imageEntry 1.2s ease;
+        footer { text-align: center; padding: 22px; color: #888; border-top:1px solid rgba(255,0,0,0.2); background:#050505; font-size:13px; }
+        @media(max-width:900px){
+            .about-grid{ grid-template-columns:1fr; gap:35px; text-align:center; }
+            .photo-box{ max-width:380px; margin:0 auto; width:100%; }
+            .photo-inner{ height:400px; }
+            .tag-top{ justify-content:center; }
+            .about-text p{ text-align:center; }
+            .profile-line{ justify-content:center; }
+            .journey{ margin-top:55px; }
+            .journey h2{ text-align:center; }
+            .journey .j-sub{ text-align:center; }
         }
+        @media(max-width:500px){ .photo-inner{ height:340px; } .journey h2{ font-size:28px; } }
 
-        .about-image img {
-            width: 300px;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 25px;
-            border: 3px solid #38bdf8;
-            box-shadow: 0 0 35px #38bdf850;
+        /* --- SCROLL PE TEXT DIKHNE WALA EFFECT --- */
+        .reveal{ opacity:0; transform:translateY(45px); transition:opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible{ opacity:1; transform:translateY(0); }
+        .reveal-left{ opacity:0; transform:translateX(-50px); transition:opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-left.visible{ opacity:1; transform:translateX(0); }
+        .reveal-right{ opacity:0; transform:translateX(50px); transition:opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-right.visible{ opacity:1; transform:translateX(0); }
+        .delay-1{ transition-delay:0.1s; }
+        .delay-2{ transition-delay:0.2s; }
+        .delay-3{ transition-delay:0.3s; }
+
+        /* --- RED WALA GOL CURSOR --- */
+        #cursor-dot{
+          position:fixed; top:0; left:0;
+          width:18px; height:18px;
+          border:2px solid #ff0000;
+          border-radius:50%;
+          background:transparent;
+          pointer-events:none;
+          z-index:99999;
+          transform:translate(-50%,-50%);
+          transition:width 0.2s, height 0.2s, background 0.2s;
+          box-shadow:0 0 12px rgba(255,0,0,0.6);
         }
-
-        .about-content {
-            max-width: 600px;
-            animation: textEntry 1.2s ease;
+        #cursor-dot.hovered{
+          width:32px; height:32px;
+          background:rgba(255,0,0,0.15);
         }
-
-        .tag {
-            color: #38bdf8;
-            letter-spacing: 4px;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .about-content h1 {
-            font-size: clamp(35px, 5vw, 60px);
-            margin-bottom: 20px;
-        }
-
-        .about-content h1 span {
-            color: #38bdf8;
-        }
-
-        .about-content h3 {
-            color: #94a3b8;
-            font-size: 23px;
-            margin-bottom: 20px;
-        }
-
-        .about-content p {
-            color: #cbd5e1;
-            line-height: 1.9;
-            font-size: 16px;
-            margin-bottom: 25px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #38bdf8;
-            color: #020617;
-            padding: 13px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: white;
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px #38bdf8;
-        }
-
-        /* SECTION */
-
-        section {
-            padding: 80px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 38px;
-            margin-bottom: 50px;
-        }
-
-        .section-title span {
-            color: #38bdf8;
-        }
-
-        /* JOURNEY CARDS */
-
-        .journey-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-        }
-
-        .journey-card {
-            background: #0f172a;
-            padding: 30px;
-            border-radius: 18px;
-            border: 1px solid #38bdf830;
-            transition: 0.4s;
-        }
-
-        .journey-card:hover {
-            transform: translateY(-10px);
-            border-color: #38bdf8;
-            box-shadow: 0 0 25px #38bdf830;
-        }
-
-        .journey-card h3 {
-            color: #38bdf8;
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-
-        .journey-card p {
-            color: #cbd5e1;
-            line-height: 1.8;
-        }
-
-        /* SKILLS */
-
-        .skills-section {
-            background: #081b29;
-        }
-
-        .skills-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .skill-box {
-            background: #0f172a;
-            border: 1px solid #38bdf8;
-            padding: 20px 35px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #38bdf8;
-            transition: 0.3s;
-        }
-
-        .skill-box:hover {
-            background: #38bdf8;
-            color: #020617;
-            transform: scale(1.08);
-            box-shadow: 0 0 20px #38bdf8;
-        }
-
-        /* CONTACT */
-
-        .contact-section {
-            text-align: center;
-        }
-
-        .contact-section p {
-            color: #cbd5e1;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #081b29;
-            text-align: center;
-            padding: 25px;
-            color: #94a3b8;
-        }
-
-        /* ANIMATIONS */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: 0.8s ease;
-        }
-
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes imageEntry {
-            from {
-                opacity: 0;
-                transform: translateX(-60px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes textEntry {
-            from {
-                opacity: 0;
-                transform: translateX(60px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* MOBILE RESPONSIVE */
-
-/* MOBILE RESPONSIVE NAVBAR */
-@media (max-width: 900px) {
-    .header {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 15px 3%;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 18px;
-    }
-}
-
-@media (max-width: 500px) {
-    .navbar {
-        gap: 12px;
-    }
-
-    .navbar a {
-        font-size: 13px;
-    }
-
-    .logo {
-        font-size: 21px;
-    }
-}
-
-@media (max-width: 768px) {
-    .about-hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .about-image img {
-        width: 240px;
-        height: 300px;
-    }
-
-    .section-title {
-        font-size: 30px;
-    }
-    /* ===== HAMBURGER MENU ===== */
-
-.menu-toggle {
-    display: none;
-    background: transparent;
-    color: white;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* MOBILE NAVBAR */
-
-@media (max-width: 700px) {
-
-    .header {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .navbar {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        width: 100%;
-        gap: 18px;
-        padding: 20px 10px;
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-}
-}/* ===== DARK MODE ===== */
-
-body.dark-mode {
-    background: #000814;
-    color: #e2e8f0;
-}
-
-body.dark-mode .header,
-body.dark-mode .skills-section,
-body.dark-mode footer {
-    background: #000814;
-}
-
-body.dark-mode .about-hero {
-    background: #000814;
-}
-
-body.dark-mode .journey-card,
-body.dark-mode .skill-box {
-    background: #020617;
-    border-color: #38bdf8;
-}
-
-body.dark-mode .about-content p,
-body.dark-mode .journey-card p,
-body.dark-mode .contact-section p {
-    color: #cbd5e1;
-}/* ===== CUSTOM MOUSE CURSOR ===== */
-#customCursor {
-    width: 18px;
-    height: 18px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border: 2px solid #38bdf8;
-    border-radius: 50%;
-    background: rgba(56, 189, 248, 0.15);
-    box-shadow: 0 0 12px #38bdf8;
-    pointer-events: none;
-    z-index: 100001;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    #customCursor {
-        display: block;
-    }
-}
-/* DESKTOP HAMBURGER FIX */
-.menu-toggle {
-    display: none !important;
-}
-
-@media (max-width: 700px) {
-    .menu-toggle {
-        display: block !important;
-    }
-}
+        @media(max-width:768px){ #cursor-dot{ display:none; } }
     </style>
 </head>
-
 <body>
 
-<!-- NAVIGATION -->
-<header class="header">
+<!-- RED DOT -->
+<div id="cursor-dot"></div>
 
+<nav>
     <a href="somebs.html" class="logo">
-        ANKIT<span> KUMAR.</span>
+        <b>AK</b>
+        <span>ANKIT <i>KUMAR</i></span>
     </a>
+    <div class="menu" id="menu">
+        <a href="somebs.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="about.html" class="active"><i class="fa-regular fa-user"></i> About</a>
+        <a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a>
+        <a href="skills.html"><i class="fa-regular fa-star"></i> Skills</a>
+        <a href="contact.html"><i class="fa-regular fa-envelope"></i> Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+        <a href="Ankit-Kumar-CV.pdf" class="cv-btn" download><i class="fa-solid fa-download"></i> Download CV</a>
+        <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+    </div>
+</nav>
 
-    <!-- HAMBURGER BUTTON -->
-    <button id="menuToggle" class="menu-toggle" aria-label="Open Menu">
-        ☰
-    </button>
-
-    <nav class="navbar" id="navbar">
-        <a href="somebs.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-
-        <button id="darkModeBtn" type="button">
-            🌙 Dark Mode
-        </button>
-    </nav>
-
-</header>
-
-    <!-- ABOUT HERO -->
-
-    <div class="about-hero">
-
-        <div class="about-image">
-    <img src="image/profile.jpg" alt="Ankit Kumar Profile Photo">
+<main class="wrap">
+    <div class="about-grid">
+        <div class="photo-box reveal-left">
+            <div class="photo-inner">AK<img src="image/profile.jpg" alt="Ankit Kumar" onerror="this.remove()"></div>
         </div>
 
-        <div class="about-content">
+        <div class="about-text">
+            <div class="tag-top reveal">GET TO KNOW ME</div>
+            <h1 class="reveal delay-1">About <span>Me</span></h1>
+            <div class="subtitle reveal delay-1">I'm Ankit <span>Kumar</span></div>
+            <p class="reveal delay-2">Hello! My name is <b>Ankit Kumar</b>. I am a student and an aspiring web developer from Nawada, Bihar. I enjoy learning new technologies and creating modern, clean websites.</p>
+            <p class="reveal delay-2">Currently, I am learning <b>HTML, CSS and JavaScript</b>. My goal is to improve my coding skills and build creative, useful and responsive websites.</p>
 
-            <div class="tag">GET TO KNOW ME</div>
-
-            <h1>About <span>Me</span></h1>
-
-            <h3>I'm Ankit Kumar</h3>
-
-            <p>
-                Hello! My name is Ankit Kumar. I am a student
-                and an aspiring web developer. I enjoy learning
-                new technologies and creating modern websites.
-
-                I am currently learning HTML, CSS and JavaScript.
-                My goal is to improve my coding skills and build
-                creative, useful and responsive websites.
-            </p>
-
-            <a href="projects.html" class="btn">
-                Explore My Work
-            </a>
-
+            <div class="profile-line reveal delay-3">
+                <span class="live-dot"></span>
+                <span><i class="fa-solid fa-location-dot"></i> <b>Web Developer</b> • Nawada, Bihar</span>
+            </div>
         </div>
-
     </div>
 
-    <!-- MY JOURNEY -->
-
-    <section class="reveal">
-
-        <h2 class="section-title">
-            My <span>Journey</span>
-        </h2>
-
-        <div class="journey-container">
-
-            <div class="journey-card">
-                <h3>01. My Beginning</h3>
-                <p>
-                    My journey started with an interest in
-                    computers and technology. I began exploring
-                    how websites are created.
-                </p>
+    <div class="journey">
+        <h2 class="reveal">My <span>Journey</span></h2>
+        <p class="j-sub reveal delay-1">How I started and where I am going.</p>
+        <div class="j-list">
+            <div class="j-item reveal-left">
+                <div class="j-num">01</div>
+                <h3>My Beginning</h3>
+                <p>My journey started with an interest in computers and technology. I began exploring how websites are created.</p>
             </div>
-
-            <div class="journey-card">
-                <h3>02. Learning</h3>
-                <p>
-                    I am learning HTML, CSS and JavaScript
-                    to understand website design and
-                    development.
-                </p>
+            <div class="j-item reveal-left delay-1">
+                <div class="j-num">02</div>
+                <h3>Learning</h3>
+                <p>I am learning HTML, CSS and JavaScript to understand website design and development.</p>
             </div>
-
-            <div class="journey-card">
-                <h3>03. Building</h3>
-                <p>
-                    I practice my skills by creating projects
-                    and improving my knowledge of web development.
-                </p>
+            <div class="j-item reveal-left delay-2">
+                <div class="j-num">03</div>
+                <h3>Building</h3>
+                <p>I practice my skills by creating projects and improving my knowledge of web development.</p>
             </div>
-
         </div>
+    </div>
+</main>
 
-    </section>
-
-    <!-- MY SKILLS -->
-
-    <section class="skills-section reveal">
-
-        <h2 class="section-title">
-            My <span>Skills</span>
-        </h2>
-
-        <div class="skills-container">
-
-            <div class="skill-box">HTML5</div>
-            <div class="skill-box">CSS3</div>
-            <div class="skill-box">JavaScript</div>
-            <div class="skill-box">Responsive Design</div>
-            <div class="skill-box">Web Design</div>
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-
-    <section class="contact-section reveal">
-
-        <h2 class="section-title">
-            Let's <span>Connect</span>
-        </h2>
-
-        <p>
-            Thank you for visiting my portfolio.
-            Feel free to explore my projects and get in touch.
-        </p>
-
-        <a href="contact.html" class="btn">
-            Contact Me
-        </a>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer>
-        <p>&copy; 2026 Ankit Kumar. All Rights Reserved.</p>
-    </footer>
-
-    <!-- SCROLL ANIMATION -->
-
+<footer><p>© 2026 Ankit Kumar | All Rights Reserved</p></footer>
 <script>
-    const aboutObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                aboutObserver.unobserve(entry.target);
-            }
+    const menu = document.getElementById('menu');
+    const toggle = document.getElementById('menuToggle');
+    const links = document.querySelectorAll('.menu a');
+    const currentPage = window.location.pathname.split('/').pop() || 'somebs.html';
+    links.forEach(link => {
+        const linkPage = link.getAttribute('href').split('/').pop();
+        if (linkPage === currentPage) { link.classList.add('active'); } else { link.classList.remove('active'); }
+    });
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('show');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('show'));
+    });
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('show');
+            toggle.setAttribute('aria-expanded', 'false');
         });
+    });
+
+    // --- RED DOT - MOUSE KE SAATH ---
+    const dot = document.getElementById('cursor-dot');
+    document.addEventListener('mousemove', (e)=>{
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el=>{
+      el.addEventListener('mouseenter', ()=> dot.classList.add('hovered'));
+      el.addEventListener('mouseleave', ()=> dot.classList.remove('hovered'));
+    });
+
+    // --- SCROLL PE TEXT DIKHNE WALA EFFECT ---
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll(".reveal").forEach(function(element) {
-        aboutObserver.observe(element);
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el=>{
+      revealObserver.observe(el);
     });
 </script>
-<!-- CUSTOM MOUSE CURSOR -->
-<div id="customCursor"></div>
-
-<script src="script.js"></script>
 </body>
 </html>

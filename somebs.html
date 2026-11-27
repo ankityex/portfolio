@@ -21,8 +21,10 @@ nav{
 .logo span{ font-size:22px; font-weight:800; white-space:nowrap; }
 .logo span i{ color:#ff0000; font-style:normal; }
 .menu{ display:flex; align-items:center; gap:6px; }
-.menu a{ padding:9px 16px; border-radius:30px; font-size:14px; font-weight:600; display:flex; gap:7px; align-items:center; }
-.menu a.active{ background:#ff0f0f; box-shadow:0 0 18px #ff0000; }
+.menu a{ padding:9px 16px; border-radius:30px; font-size:14px; font-weight:600; display:flex; gap:7px; align-items:center; position:relative; }
+/* ACTIVE - AB LAAL DABBA NAHI, SIRF LAAL TEXT + NICHE LINE */
+.menu a.active{ background:transparent !important; box-shadow:none !important; color:#ff2020 !important; }
+.menu a.active::after{ content:""; position:absolute; left:16px; right:16px; bottom:4px; height:2px; background:#ff2020; border-radius:10px; box-shadow:0 0 8px #ff2020; }
 .menu a:hover{ background:rgba(255,0,0,0.15); }
 .cv-btn{ border:1.5px solid #ff0000; background:#0a0000; padding:9px 16px; border-radius:30px; font-size:13px; font-weight:600; display:flex; gap:7px; align-items:center; box-shadow:0 0 15px rgba(255,0,0,0.4); }
 /* Menu ke andar wala CV - Laptop me chhupa rahega */
@@ -154,6 +156,8 @@ footer{ text-align:center; padding:22px; color:#888; border-top:1px solid rgba(2
   /* PHONE ME UPAR WALA CV HIDE, MENU WALA CV SHOW */
   .cv-outside{ display:none !important; }
   .cv-in-menu{ display:flex !important; background:#ff0f0f !important; border-color:#ff3030 !important; justify-content:center !important; margin-top:6px !important; box-shadow:0 0 18px rgba(255,0,0,0.6) !important; }
+  /* PHONE MENU ME ACTIVE - DABBA NAHI, SIRF LEFT LINE + LAAL TEXT */
+  .menu a.active::after{ left:0 !important; right:auto !important; top:8px !important; bottom:8px !important; width:3px !important; height:auto !important; }
 
   .menu-toggle{ width:40px !important; height:40px !important; flex-shrink:0 !important; }
   .hero{ padding:24px 5% 28px !important; min-height:auto !important; }
